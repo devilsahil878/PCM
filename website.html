@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>PCM International School</title>
+  <style>
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="text-gray-600 body-font bg-white shadow-md">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+        <img src="logo.jpg" alt="PCM School Logo" class="w-12 h-12 rounded-full" />
+        <span class="ml-3 text-xl font-bold">PCM</span>
+      </a>
+      <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center gap-4">
+        <button onclick="showSection('home')" class="hover:text-gray-900">Home</button>
+        <button onclick="showSection('about')" class="hover:text-gray-900">About</button>
+        <button onclick="showSection('fees')" class="hover:text-gray-900">Fees</button>
+        <button onclick="showSection('faculty')" class="hover:text-gray-900">Faculty</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Home Section -->
+  <div id="home">
+    <!-- (Original home content from website.html here) -->
+    <!-- Keep everything from your original 'website.html' home section -->
+    <!-- You can paste the mid part, footer, and contact section as-is here -->
+  </div>
+
+  <!-- About Section -->
+  <div id="about" class="hidden">
+    <div class="relative w-full h-80 md:h-[500px] overflow-hidden">
+      <img id="bannerImage" src="school1.jpg" alt="School Banner" class="w-full h-full object-cover fade absolute inset-0">
+    </div>
+    <section class="max-w-6xl mx-auto bg-white rounded-2xl shadow-xl p-10 mt-10">
+      <h2 class="text-4xl font-bold mb-6 text-blue-700 text-center">About Our School</h2>
+      <p class="text-gray-700 text-lg leading-relaxed mb-4">
+        Welcome to our school — a place where passion meets purpose, and where education becomes a powerful tool for change...
+      </p>
+      <!-- (rest of about.html content here) -->
+    </section>
+  </div>
+
+  <!-- Faculty Section -->
+  <div id="faculty" class="hidden p-6 bg-gray-100">
+    <h2 class="text-2xl font-bold mb-4 text-center">School Staff List</h2>
+    <div class="overflow-auto">
+      <table class="min-w-full bg-white border border-gray-300">
+        <thead class="bg-gray-200">
+          <tr>
+            <th class="text-left py-2 px-4 border">Name</th>
+            <th class="text-left py-2 px-4 border">Designation</th>
+            <th class="text-left py-2 px-4 border">Education</th>
+          </tr>
+        </thead>
+        <tbody class="text-gray-700">
+          <tr><td class="py-2 px-4 border">Aslam Javed</td><td class="py-2 px-4 border">Director</td><td class="py-2 px-4 border">Engineer</td></tr>
+          <!-- (rest of faculty.html table rows) -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Fees Section -->
+  <div id="fees" class="hidden bg-gray-100 min-h-screen flex items-center justify-center py-12">
+    <div class="bg-white p-6 rounded-xl shadow-xl max-w-2xl w-full overflow-auto">
+      <h2 class="text-2xl font-bold mb-4 text-center">Fees Structure</h2>
+      <table class="w-full table-auto border border-gray-300">
+        <thead>
+          <tr class="bg-gray-200 text-left">
+            <th class="border border-gray-300 px-4 py-2">Class</th>
+            <th class="border border-gray-300 px-4 py-2">Fees (INR)</th>
+          </tr>
+        </thead>
+        <tbody class="text-gray-700">
+          <tr><td class="border px-4 py-2">Pre-Nursery</td><td class="border px-4 py-2">₹350</td></tr>
+          <!-- (rest of fees.html table rows) -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- JavaScript to toggle sections -->
+  <script>
+    function showSection(sectionId) {
+      ['home', 'about', 'fees', 'faculty'].forEach(id => {
+        document.getElementById(id).classList.add('hidden');
+      });
+      document.getElementById(sectionId).classList.remove('hidden');
+    }
+
+    // Banner image slideshow for About section
+    const bannerImages = ["banner1.jpg", "banner2.jpg", "banner3.jpg"];
+    let current = 0;
+    const banner = document.getElementById("bannerImage");
+    if (banner) {
+      setInterval(() => {
+        banner.style.opacity = 0;
+        setTimeout(() => {
+          current = (current + 1) % bannerImages.length;
+          banner.src = bannerImages[current];
+          banner.style.opacity = 1;
+        }, 1000);
+      }, 4000);
+    }
+  </script>
+</body>
+</html>
